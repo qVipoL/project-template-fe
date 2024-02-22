@@ -26,7 +26,7 @@ export const UserCreate: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Password"
+          label={translate("user.fields.password")}
           name="password"
           rules={[
             {
