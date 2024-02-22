@@ -1,0 +1,150 @@
+{
+  "pages": {
+    "login": {
+      "title": "תתחבר לחשבון שלך",
+      "signin": "להתחבר",
+      "signup": "הירשם",
+      "divider": "אוֹ",
+      "fields": {
+        "email": "אימייל",
+        "password": "סיסמה"
+      },
+      "errors": {
+        "validEmail": "כתובת אימייל לא חוקית"
+      },
+      "buttons": {
+        "submit": "התחברות",
+        "forgotPassword": "שכחת את הסיסמא?",
+        "noAccount": "אין לך חשבון?",
+        "rememberMe": "זכור אותי"
+      }
+    },
+    "forgotPassword": {
+      "title": "שכחת ססמה?",
+      "fields": {
+        "email": "אימייל"
+      },
+      "errors": {
+        "validEmail": "כתובת אימייל לא חוקית"
+      },
+      "buttons": {
+        "submit": "שלח הוראות איפוס"
+      }
+    },
+    "register": {
+      "title": "הירשם לחשבון שלך",
+      "fields": {
+        "name": "שם מלא",
+        "email": "אימייל",
+        "password": "סיסמה",
+        "confirmPassword": "תאשר סיסמא חדשה"
+      },
+      "errors": {
+        "validEmail": "כתובת אימייל לא חוקית"
+      },
+      "buttons": {
+        "submit": "הירשם",
+        "haveAccount": "יש לך חשבון?"
+      }
+    },
+    "updatePassword": {
+      "title": "עדכן סיסמה",
+      "fields": {
+        "password": "סיסמה חדשה",
+        "confirmPassword": "תאשר סיסמא חדשה"
+      },
+      "errors": {
+        "confirmPasswordNotMatch": "סיסמאות לא תואמות"
+      },
+      "buttons": {
+        "submit": "עדכון"
+      }
+    },
+    "error": {
+      "404": "מצטערים, הדף שבו ביקרת לא קיים.",
+      "info": "אולי שכחת להוסיף את {{action}} רכיב ל {{resource}} מַשׁאָב.",
+      "resource404": "האם אתה בטוח שיצרת את {{resource}} מַשׁאָב.",
+      "backHome": "בבית"
+    }
+  },
+  "actions": {
+    "list": "רשימה",
+    "create": "לִיצוֹר",
+    "edit": "לַעֲרוֹך",
+    "show": "הופעה"
+  },
+  "buttons": {
+    "create": "לִיצוֹר",
+    "save": "להציל",
+    "logout": "להתנתק",
+    "delete": "לִמְחוֹק",
+    "edit": "לַעֲרוֹך",
+    "cancel": "לְבַטֵל",
+    "confirm": "האם אתה בטוח?",
+    "filter": "לְסַנֵן",
+    "clear": "ברור",
+    "refresh": "לְרַעֲנֵן",
+    "show": "הופעה",
+    "undo": "לבטל",
+    "import": "יְבוּא",
+    "clone": "שיבוט",
+    "notAccessTitle": "אין לך הרשאת גישה"
+  },
+  "warnWhenUnsavedChanges": "אתה בטוח שאתה רוצה לעזוב? ",
+  "notifications": {
+    "success": "מוּצלָח",
+    "error": "שגיאה (קוד מצב: {{statusCode}})",
+    "undoable": "יש לך {{seconds}} שניות לביטול",
+    "createSuccess": "נוצר בהצלחה {{resource}}",
+    "createError": "אירעה שגיאה ביצירה {{resource}} (קוד סטטוס: {{statusCode}})",
+    "deleteSuccess": "נמחק בהצלחה {{resource}}",
+    "deleteError": "שגיאה בעת מחיקה {{resource}} (קוד סטטוס: {{statusCode}})",
+    "editSuccess": "נערך בהצלחה {{resource}}",
+    "editError": "שגיאה בעת עריכה {{resource}} (קוד סטטוס: {{statusCode}})",
+    "importProgress": "מייבא: {{processed}}/{{total}}"
+  },
+  "loading": "טוען",
+  "tags": {
+    "clone": "שיבוט"
+  },
+  "dashboard": {
+    "title": "לוּחַ מַחווָנִים"
+  },
+  "user": {
+    "users": "משתמשים",
+    "fields": {
+      "id": "ID",
+      "name": "שם מלא",
+      "email": "אימייל",
+      "roles": "תפקידים",
+      "password": "סיסמה",
+      "actions": "פעולות"
+    },
+    "titles": {
+      "create": "צור משתמש",
+      "edit": "ערוך משתמש",
+      "list": "משתמשים",
+      "show": "הצג משתמש"
+    }
+  },
+  "table": {
+    "actions": "פעולות"
+  },
+  "documentTitle": {
+    "default": "לעדן",
+    "suffix": " | ",
+    "user": {
+      "list": "משתמשים | ",
+      "show": "{{id}} הצג משתמש | ",
+      "edit": "{{id}} ערוך משתמש | ",
+      "create": "צור משתמש חדש | ",
+      "clone": "{{id}} שיבוט משתמש | "
+    }
+  },
+  "autoSave": {
+    "success": "שמור",
+    "error": "כשל בשמירה אוטומטית",
+    "loading": "חִסָכוֹן...",
+    "idle": "מחכה לשינויים"
+  }
+}

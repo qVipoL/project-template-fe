@@ -156,7 +156,7 @@ export const RegisterPage: React.FC<RegisterProps> = ({
         >
           <Form.Item
             name="email"
-            label={translate("pages.register.email", "Email")}
+            label={translate("pages.register.fields.email", "Email")}
             rules={[
               { required: true },
               {
@@ -175,7 +175,7 @@ export const RegisterPage: React.FC<RegisterProps> = ({
           </Form.Item>
           <Form.Item
             name="name"
-            label={translate("pages.register.name", "Name")}
+            label={translate("pages.register.fields.name", "Name")}
             rules={[{ required: true }]}
           >
             <Input
@@ -241,7 +241,10 @@ export const RegisterPage: React.FC<RegisterProps> = ({
           }}
         >
           <Typography.Text style={{ fontSize: 12 }}>
-            {translate("pages.login.buttons.haveAccount", "Have an account?")}{" "}
+            {translate(
+              "pages.register.buttons.haveAccount",
+              "Have an account?"
+            )}{" "}
             <ActiveLink
               to="/login"
               style={{

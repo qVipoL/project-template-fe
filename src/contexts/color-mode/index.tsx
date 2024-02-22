@@ -1,4 +1,5 @@
 import { RefineThemes } from "@refinedev/antd";
+import { useGetLocale } from "@refinedev/core";
 import { ConfigProvider, theme } from "antd";
 import { PropsWithChildren, createContext, useEffect, useState } from "react";
 
@@ -11,9 +12,15 @@ export const ColorModeContext = createContext<ColorModeContextType>(
   {} as ColorModeContextType
 );
 
-export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({
+type Props = {
+  language: string;
+} & PropsWithChildren;
+
+export const ColorModeContextProvider: React.FC<Props> = ({
   children,
+  language,
 }) => {
+  const getLocale = useGetLocale();
   const colorModeFromLocalStorage = localStorage.getItem("colorMode");
   const isSystemPreferenceDark = window?.matchMedia(
     "(prefers-color-scheme: dark)"
@@ -46,6 +53,7 @@ export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({
       }}
     >
       <ConfigProvider
+        direction={language === "he" ? "rtl" : "ltr"}
         // you can change the theme colors here. example: ...RefineThemes.Magenta,
         theme={{
           ...RefineThemes.Blue,

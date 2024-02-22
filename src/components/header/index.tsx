@@ -1,15 +1,9 @@
 import type { RefineThemedLayoutV2HeaderProps } from "@refinedev/antd";
 import { useGetIdentity } from "@refinedev/core";
-import {
-  Layout as AntdLayout,
-  Avatar,
-  Space,
-  Switch,
-  Typography,
-  theme,
-} from "antd";
+import { Layout as AntdLayout, Space, Switch, Typography, theme } from "antd";
 import React, { useContext } from "react";
 import { ColorModeContext } from "../../contexts/color-mode";
+import { LanguageSelect } from "../language-select";
 
 const { Text } = Typography;
 const { useToken } = theme;
@@ -45,6 +39,7 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
   return (
     <AntdLayout.Header style={headerStyles}>
       <Space>
+        <LanguageSelect />
         <Switch
           checkedChildren="🌛"
           unCheckedChildren="🔆"

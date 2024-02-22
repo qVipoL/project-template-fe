@@ -1,4 +1,4 @@
-import { Authenticated, Refine } from "@refinedev/core";
+import { Authenticated, I18nProvider, Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
@@ -29,17 +29,28 @@ import dataProvider from "@refinedev/simple-rest";
 import { accessControlProvider } from "./providers/access-control-provider";
 import { Overview } from "./pages/overview";
 import { UserOutlined } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  const i18nProvider: I18nProvider = {
+    // @ts-ignore
+    translate: (key: string, defaultMessage?: string) => t(key, defaultMessage),
+    changeLocale: (lang: string) => i18n.changeLanguage(lang),
+    getLocale: () => i18n.language,
+  };
+
   return (
     <BrowserRouter>
       <RefineKbarProvider>
-        <ColorModeContextProvider>
+        <ColorModeContextProvider language={i18n.language}>
           <AntdApp>
             <DevtoolsProvider>
               <Refine
                 dataProvider={dataProvider(BASE_URL, apiInstance)}
                 accessControlProvider={accessControlProvider}
+                i18nProvider={i18nProvider}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerBindings}
                 authProvider={authProvider}
@@ -52,6 +63,7 @@ function App() {
                     meta: {
                       canDelete: true,
                       icon: <UserOutlined />,
+                      label: t("user.users"),
                     },
                   },
                 ]}
