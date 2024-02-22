@@ -1,14 +1,23 @@
 import { AuthBindings } from "@refinedev/core";
-import { loginRequest, registerRequest } from "../api/auth";
+import { loginRequest, meRequest, registerRequest } from "../api/auth";
 import { parseJwt } from "../utils/helpers";
 
 export const ACCESS_TOKEN_KEY = "access_token";
 
 export const authProvider: AuthBindings = {
   login: async ({ email, password }) => {
-    const response = await loginRequest({ email, password });
+    try {
+      const {
+        data: { access_token },
+      } = await loginRequest({ email, password });
 
-    if (!response) {
+      localStorage.setItem(ACCESS_TOKEN_KEY, access_token);
+
+      return {
+        success: true,
+        redirectTo: "/",
+      };
+    } catch (error) {
       return {
         success: false,
         error: {
@@ -17,13 +26,6 @@ export const authProvider: AuthBindings = {
         },
       };
     }
-
-    localStorage.setItem(ACCESS_TOKEN_KEY, response.access_token);
-
-    return {
-      success: true,
-      redirectTo: "/",
-    };
   },
   logout: async () => {
     localStorage.removeItem(ACCESS_TOKEN_KEY);
@@ -48,18 +50,16 @@ export const authProvider: AuthBindings = {
   },
   getPermissions: async () => null,
   getIdentity: async () => {
-    const token = localStorage.getItem(ACCESS_TOKEN_KEY);
+    const { data: user } = await meRequest();
 
-    if (!token) return null;
+    if (!user) return null;
 
-    const { sub, email, roles } = parseJwt(token);
+    const { id, email, roles } = user;
 
     return {
-      id: sub,
-      email: email,
+      id,
+      email,
       roles,
-      name: "John Doe",
-      avatar: "https://i.pravatar.cc/300",
     };
   },
   onError: async (error) => {
@@ -77,9 +77,17 @@ export const authProvider: AuthBindings = {
       };
     }
 
-    const res = await registerRequest({ email, name, password });
+    try {
+      await registerRequest({ email, name, password });
 
-    if (!res) {
+      return {
+        success: true,
+        successNotification: {
+          message: "Registration successful",
+        },
+        redirectTo: "/login",
+      };
+    } catch (error) {
       return {
         success: false,
         error: {
@@ -88,13 +96,5 @@ export const authProvider: AuthBindings = {
         },
       };
     }
-
-    return {
-      success: true,
-      successNotification: {
-        message: "Registration successful",
-      },
-      redirectTo: "/login",
-    };
   },
 };

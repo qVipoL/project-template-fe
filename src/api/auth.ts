@@ -1,8 +1,9 @@
-import { apiRequest } from "./api";
+import { apiInstance } from "./api";
 
 export const AuthEndpoints = {
   login: "/auth/login",
   register: "/auth/register",
+  me: "/auth/me",
 };
 
 type LoginDto = {
@@ -15,9 +16,9 @@ type LoginResponse = {
 };
 
 export const loginRequest = async ({ email, password }: LoginDto) => {
-  return apiRequest<LoginResponse>(AuthEndpoints.login, {
-    method: "POST",
-    body: JSON.stringify({ email, password }),
+  return apiInstance.post<LoginResponse>(AuthEndpoints.login, {
+    email,
+    password,
   });
 };
 
@@ -34,8 +35,19 @@ export const registerRequest = async ({
   name,
   password,
 }: RegisterDto) => {
-  return apiRequest<RegisterResponse>(AuthEndpoints.register, {
-    method: "POST",
-    body: JSON.stringify({ email, password, name }),
+  return apiInstance.post<RegisterResponse>(AuthEndpoints.register, {
+    email,
+    password,
+    name,
   });
+};
+
+type MeResponse = {
+  id: string;
+  email: string;
+  roles: string[];
+};
+
+export const meRequest = async () => {
+  return apiInstance.get<MeResponse>(AuthEndpoints.me);
 };
