@@ -1,12 +1,12 @@
-import { AuthPage } from "@refinedev/antd";
+import { AuthPage } from "../../components/pages/auth";
 
 export const Login = () => {
   return (
     <AuthPage
       type="login"
-      formProps={{
-        initialValues: { email: "demo@refine.dev", password: "demodemo" },
-      }}
+      rememberMe={false}
+      forgotPasswordLink={false}
+      formProps={{}}
     />
   );
 };
