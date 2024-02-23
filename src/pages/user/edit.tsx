@@ -2,7 +2,8 @@ import { Edit, useForm } from "@refinedev/antd";
 import { IResourceComponentsProps, useTranslate } from "@refinedev/core";
 import { Form, Input, Select } from "antd";
 import React from "react";
-import { ROLES, User } from "./constants";
+import { ROLES } from "./constants";
+import { User } from "src/types";
 
 export const UserEdit: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps } = useForm<User>({});
@@ -21,7 +22,7 @@ export const UserEdit: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item label={translate("user.fields.roles")} name="roles">
-          <Select mode="multiple" placeholder="Select roles">
+          <Select mode="multiple">
             {Object.values(ROLES).map((role) => (
               <Select.Option key={role} value={role}>
                 {role}

@@ -37,7 +37,7 @@ export const UserCreate: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item label={translate("user.fields.roles")} name="roles">
-          <Select mode="multiple" placeholder="Select roles">
+          <Select mode="multiple">
             {Object.values(ROLES).map((role) => (
               <Select.Option key={role} value={role}>
                 {role}

@@ -5,6 +5,7 @@ import { parseJwt } from "../utils/helpers";
 const userResources: string[] = [];
 
 export const accessControlProvider: AccessControlProvider = {
+  // checks if the user can has access to a resource
   can: async ({ resource }) => {
     const token = localStorage.getItem(ACCESS_TOKEN_KEY);
     if (!token) {

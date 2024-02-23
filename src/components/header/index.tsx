@@ -4,21 +4,16 @@ import { Layout as AntdLayout, Space, Switch, Typography, theme } from "antd";
 import React, { useContext } from "react";
 import { ColorModeContext } from "../../contexts/color-mode";
 import { LanguageSelect } from "../language-select";
+import { User } from "src/types";
 
 const { Text } = Typography;
 const { useToken } = theme;
-
-type IUser = {
-  id: number;
-  email: string;
-  roles: string[];
-};
 
 export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
   sticky,
 }) => {
   const { token } = useToken();
-  const { data: user } = useGetIdentity<IUser>();
+  const { data: user } = useGetIdentity<User>();
   const { mode, setMode } = useContext(ColorModeContext);
 
   const headerStyles: React.CSSProperties = {

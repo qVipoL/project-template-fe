@@ -1,10 +1,10 @@
 import { AuthBindings } from "@refinedev/core";
 import { loginRequest, meRequest, registerRequest } from "../api/auth";
-import { parseJwt } from "../utils/helpers";
 
 export const ACCESS_TOKEN_KEY = "access_token";
 
 export const authProvider: AuthBindings = {
+  // executes on login
   login: async ({ email, password }) => {
     try {
       const {
@@ -27,6 +27,7 @@ export const authProvider: AuthBindings = {
       };
     }
   },
+  // executes on logout
   logout: async () => {
     localStorage.removeItem(ACCESS_TOKEN_KEY);
 
@@ -35,44 +36,14 @@ export const authProvider: AuthBindings = {
       redirectTo: "/login",
     };
   },
-  check: async () => {
-    const token = localStorage.getItem(ACCESS_TOKEN_KEY);
-    if (token) {
-      return {
-        authenticated: true,
-      };
-    }
-
-    return {
-      authenticated: false,
-      redirectTo: "/login",
-    };
-  },
-  getPermissions: async () => null,
-  getIdentity: async () => {
-    const { data: user } = await meRequest();
-
-    if (!user) return null;
-
-    const { id, email, roles } = user;
-
-    return {
-      id,
-      email,
-      roles,
-    };
-  },
-  onError: async (error) => {
-    console.error(error);
-    return { error };
-  },
+  // executes on register
   register: async ({ email, name, password, confirmPassword }) => {
     if (password !== confirmPassword) {
       return {
         success: false,
         error: {
-          name: "Login Error",
-          message: "Invalid email or password",
+          name: "Register Error",
+          message: "Passwords do not match",
         },
       };
     }
@@ -96,5 +67,38 @@ export const authProvider: AuthBindings = {
         },
       };
     }
+  },
+  // checks if user is authenticated
+  check: async () => {
+    const token = localStorage.getItem(ACCESS_TOKEN_KEY);
+    if (token) {
+      return {
+        authenticated: true,
+      };
+    }
+
+    return {
+      authenticated: false,
+      redirectTo: "/login",
+    };
+  },
+  // gets user identityfrom the server
+  getIdentity: async () => {
+    const { data: user } = await meRequest();
+
+    if (!user) return null;
+
+    const { id, email, roles } = user;
+
+    return {
+      id,
+      email,
+      roles,
+    };
+  },
+  // executes on error
+  onError: async (error) => {
+    console.error(error);
+    return { error };
   },
 };
