@@ -93,8 +93,16 @@ function App() {
                   >
                     <Route index element={<Overview />} />
                     <Route path="/user">
-                      <Route index element={<UserList />} />
-                      <Route path="create" element={<UserCreate />} />
+                      <Route
+                        element={
+                          <UserList>
+                            <Outlet />
+                          </UserList>
+                        }
+                      >
+                        <Route index element={null} />
+                        <Route path="create" element={<UserCreate />} />
+                      </Route>
                       <Route path="edit/:id" element={<UserEdit />} />
                     </Route>
                     <Route path="*" element={<ErrorComponent />} />

@@ -1,6 +1,13 @@
 import type { RefineThemedLayoutV2HeaderProps } from "@refinedev/antd";
 import { useGetIdentity } from "@refinedev/core";
-import { Layout as AntdLayout, Space, Switch, Typography, theme } from "antd";
+import {
+  Layout as AntdLayout,
+  Flex,
+  Space,
+  Switch,
+  Typography,
+  theme,
+} from "antd";
 import React, { useContext } from "react";
 import { ColorModeContext } from "../../contexts/color-mode";
 import { LanguageSelect } from "../language-select";
@@ -33,7 +40,7 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
 
   return (
     <AntdLayout.Header style={headerStyles}>
-      <Space>
+      <Flex align="center" gap={24}>
         <LanguageSelect />
         <Switch
           checkedChildren="🌛"
@@ -44,7 +51,7 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
         <Space style={{ marginLeft: "8px" }} size="middle">
           {user?.email && <Text strong>{user.email}</Text>}
         </Space>
-      </Space>
+      </Flex>
     </AntdLayout.Header>
   );
 };

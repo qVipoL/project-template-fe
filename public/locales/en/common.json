@@ -118,7 +118,8 @@
       "email": "Email",
       "roles": "Roles",
       "password": "Password",
-      "actions": "Actions"
+      "actions": "Actions",
+      "avatar": "Avatar"
     },
     "titles": {
       "create": "Create User",
@@ -146,5 +147,14 @@
     "error": "auto save failure",
     "loading": "saving...",
     "idle": "waiting for changes"
+  },
+  "errors": {
+    "file": {
+      "onlyPng": "Only PNG files are allowed",
+      "1mbLimit": "Image size must be less than 1MB"
+    }
+  },
+  "forms": {
+    "upload": "Upload"
   }
 }

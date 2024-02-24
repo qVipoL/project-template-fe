@@ -14,6 +14,7 @@
     "@refinedev/simple-rest": "^5.0.1",
     "@uiw/react-md-editor": "^3.19.5",
     "antd": "^5.0.5",
+    "antd-style": "^3.6.1",
     "i18next": "^23.10.0",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-xhr-backend": "^3.2.2",
