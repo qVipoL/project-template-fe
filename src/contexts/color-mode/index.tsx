@@ -56,7 +56,7 @@ export const ColorModeContextProvider: React.FC<Props> = ({
         locale={language === 'he' ? heIL : undefined}
         // you can change the theme colors here. example: ...RefineThemes.Magenta,
         theme={{
-          ...RefineThemes.Orange,
+          ...RefineThemes.Green,
           algorithm: mode === 'light' ? defaultAlgorithm : darkAlgorithm,
         }}
       >
