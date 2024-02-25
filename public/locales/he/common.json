@@ -88,7 +88,8 @@
     "undo": "לבטל",
     "import": "יבוא",
     "clone": "שיבוט",
-    "notAccessTitle": "אין לך הרשאת גישה"
+    "notAccessTitle": "אין לך הרשאת גישה",
+    "export": "ייצוא"
   },
   "warnWhenUnsavedChanges": "אתה בטוח שאתה רוצה לעזוב? ",
   "notifications": {
