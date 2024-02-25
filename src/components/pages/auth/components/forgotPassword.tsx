@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   ForgotPasswordPageProps,
   ForgotPasswordFormTypes,
@@ -7,15 +7,15 @@ import {
   useTranslate,
   useRouterContext,
   useForgotPassword,
-} from "@refinedev/core";
-import { ThemedTitleV2 } from "@refinedev/antd";
+} from '@refinedev/core';
+import { ThemedTitleV2 } from '@refinedev/antd';
 import {
   layoutStyles,
   containerStyles,
   titleStyles,
   headStyles,
   bodyStyles,
-} from "./styles";
+} from './styles';
 import {
   Row,
   Col,
@@ -29,7 +29,7 @@ import {
   CardProps,
   FormProps,
   theme,
-} from "antd";
+} from 'antd';
 
 type ResetPassworProps = ForgotPasswordPageProps<
   LayoutProps,
@@ -57,7 +57,7 @@ export const ForgotPasswordPage: React.FC<ResetPassworProps> = ({
   const Link = useLink();
   const { Link: LegacyLink } = useRouterContext();
 
-  const ActiveLink = routerType === "legacy" ? LegacyLink : Link;
+  const ActiveLink = routerType === 'legacy' ? LegacyLink : Link;
 
   const { mutate: forgotPassword, isLoading } =
     useForgotPassword<ForgotPasswordFormTypes>();
@@ -66,10 +66,10 @@ export const ForgotPasswordPage: React.FC<ResetPassworProps> = ({
     title === false ? null : (
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          marginBottom: "32px",
-          fontSize: "20px",
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '32px',
+          fontSize: '20px',
         }}
       >
         {title ?? <ThemedTitleV2 collapsed={false} />}
@@ -84,7 +84,7 @@ export const ForgotPasswordPage: React.FC<ResetPassworProps> = ({
         ...titleStyles,
       }}
     >
-      {translate("pages.forgotPassword.title", "Forgot your password?")}
+      {translate('pages.forgotPassword.title', 'Forgot your password?')}
     </Typography.Title>
   );
   const CardContent = (
@@ -107,14 +107,14 @@ export const ForgotPasswordPage: React.FC<ResetPassworProps> = ({
       >
         <Form.Item
           name="email"
-          label={translate("pages.forgotPassword.fields.email", "Email")}
+          label={translate('pages.forgotPassword.fields.email', 'Email')}
           rules={[
             { required: true },
             {
-              type: "email",
+              type: 'email',
               message: translate(
-                "pages.forgotPassword.errors.validEmail",
-                "Invalid email address"
+                'pages.forgotPassword.errors.validEmail',
+                'Invalid email address',
               ),
             },
           ]}
@@ -123,43 +123,43 @@ export const ForgotPasswordPage: React.FC<ResetPassworProps> = ({
             type="email"
             size="large"
             placeholder={translate(
-              "pages.forgotPassword.fields.email",
-              "Email"
+              'pages.forgotPassword.fields.email',
+              'Email',
             )}
           />
         </Form.Item>
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-between",
+            display: 'flex',
+            justifyContent: 'space-between',
           }}
         >
           {loginLink ?? (
             <Typography.Text
               style={{
                 fontSize: 12,
-                marginLeft: "auto",
+                marginLeft: 'auto',
               }}
             >
               {translate(
-                "pages.register.buttons.haveAccount",
-                "Have an account? "
-              )}{" "}
+                'pages.register.buttons.haveAccount',
+                'Have an account? ',
+              )}{' '}
               <ActiveLink
                 style={{
-                  fontWeight: "bold",
+                  fontWeight: 'bold',
                   color: token.colorPrimaryTextHover,
                 }}
                 to="/login"
               >
-                {translate("pages.login.signin", "Sign in")}
+                {translate('pages.login.signin', 'Sign in')}
               </ActiveLink>
             </Typography.Text>
           )}
         </div>
         <Form.Item
           style={{
-            marginTop: "24px",
+            marginTop: '24px',
             marginBottom: 0,
           }}
         >
@@ -171,8 +171,8 @@ export const ForgotPasswordPage: React.FC<ResetPassworProps> = ({
             block
           >
             {translate(
-              "pages.forgotPassword.buttons.submit",
-              "Send reset instructions"
+              'pages.forgotPassword.buttons.submit',
+              'Send reset instructions',
             )}
           </Button>
         </Form.Item>
@@ -186,8 +186,8 @@ export const ForgotPasswordPage: React.FC<ResetPassworProps> = ({
         justify="center"
         align="middle"
         style={{
-          padding: "16px 0",
-          minHeight: "100dvh",
+          padding: '16px 0',
+          minHeight: '100dvh',
         }}
       >
         <Col xs={22}>

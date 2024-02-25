@@ -1,17 +1,17 @@
-import React from "react";
-import { AuthPageProps } from "@refinedev/core";
+import React from 'react';
+import { AuthPageProps } from '@refinedev/core';
 import {
   LoginPage,
   RegisterPage,
   ForgotPasswordPage,
   UpdatePasswordPage,
-} from "./components";
-import { CardProps, FormProps, LayoutProps } from "antd";
+} from './components';
+import { CardProps, FormProps, LayoutProps } from 'antd';
 
 export type AuthProps = AuthPageProps<LayoutProps, CardProps, FormProps> & {
   renderContent?: (
     content: React.ReactNode,
-    title: React.ReactNode
+    title: React.ReactNode,
   ) => React.ReactNode;
   title?: React.ReactNode;
 };
@@ -25,11 +25,11 @@ export const AuthPage: React.FC<AuthProps> = (props) => {
   const { type } = props;
   const renderView = () => {
     switch (type) {
-      case "register":
+      case 'register':
         return <RegisterPage {...props} />;
-      case "forgotPassword":
+      case 'forgotPassword':
         return <ForgotPasswordPage {...props} />;
-      case "updatePassword":
+      case 'updatePassword':
         return <UpdatePasswordPage {...props} />;
       default:
         return <LoginPage {...props} />;

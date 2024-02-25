@@ -1,7 +1,7 @@
-import { AuthBindings } from "@refinedev/core";
-import { loginRequest, meRequest, registerRequest } from "../api/auth";
+import { AuthBindings } from '@refinedev/core';
+import { loginRequest, meRequest, registerRequest } from '../api/auth';
 
-export const ACCESS_TOKEN_KEY = "access_token";
+export const ACCESS_TOKEN_KEY = 'access_token';
 
 export const authProvider: AuthBindings = {
   // executes on login
@@ -15,14 +15,14 @@ export const authProvider: AuthBindings = {
 
       return {
         success: true,
-        redirectTo: "/",
+        redirectTo: '/',
       };
     } catch (error) {
       return {
         success: false,
         error: {
-          name: "Login Error",
-          message: "Invalid email or password",
+          name: 'Login Error',
+          message: 'Invalid email or password',
         },
       };
     }
@@ -33,7 +33,7 @@ export const authProvider: AuthBindings = {
 
     return {
       success: true,
-      redirectTo: "/login",
+      redirectTo: '/login',
     };
   },
   // executes on register
@@ -42,8 +42,8 @@ export const authProvider: AuthBindings = {
       return {
         success: false,
         error: {
-          name: "Register Error",
-          message: "Passwords do not match",
+          name: 'Register Error',
+          message: 'Passwords do not match',
         },
       };
     }
@@ -54,16 +54,16 @@ export const authProvider: AuthBindings = {
       return {
         success: true,
         successNotification: {
-          message: "Registration successful",
+          message: 'Registration successful',
         },
-        redirectTo: "/login",
+        redirectTo: '/login',
       };
     } catch (error) {
       return {
         success: false,
         error: {
-          name: "Register Error",
-          message: "User already exists",
+          name: 'Register Error',
+          message: 'User already exists',
         },
       };
     }
@@ -79,7 +79,7 @@ export const authProvider: AuthBindings = {
 
     return {
       authenticated: false,
-      redirectTo: "/login",
+      redirectTo: '/login',
     };
   },
   // gets user identityfrom the server

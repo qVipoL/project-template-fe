@@ -1,6 +1,6 @@
-import { Authenticated, I18nProvider, Refine } from "@refinedev/core";
-import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
-import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
+import { Authenticated, I18nProvider, Refine } from '@refinedev/core';
+import { DevtoolsPanel, DevtoolsProvider } from '@refinedev/devtools';
+import { RefineKbar, RefineKbarProvider } from '@refinedev/kbar';
 
 import {
   ErrorComponent,
@@ -8,30 +8,30 @@ import {
   ThemedSiderV2,
   ThemedTitleV2,
   useNotificationProvider,
-} from "@refinedev/antd";
-import "@refinedev/antd/dist/reset.css";
+} from '@refinedev/antd';
+import '@refinedev/antd/dist/reset.css';
 
 import routerBindings, {
   CatchAllNavigate,
   DocumentTitleHandler,
   NavigateToResource,
   UnsavedChangesNotifier,
-} from "@refinedev/react-router-v6";
-import { App as AntdApp } from "antd";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { Header } from "./components/header";
-import { ColorModeContextProvider } from "./contexts/color-mode";
-import { Login } from "./pages/login";
-import { Register } from "./pages/register";
-import { authProvider } from "./providers/auth-provider";
-import { UserCreate, UserEdit, UserList } from "./pages/user";
-import { apiInstance } from "./api/api";
-import dataProvider from "@refinedev/simple-rest";
-import { accessControlProvider } from "./providers/access-control-provider";
-import { Home } from "./pages/home";
-import { HomeOutlined, UserOutlined } from "@ant-design/icons";
-import { useTranslation } from "react-i18next";
-import { config } from "./config";
+} from '@refinedev/react-router-v6';
+import { App as AntdApp } from 'antd';
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
+import { Header } from './components/header';
+import { ColorModeContextProvider } from './contexts/color-mode';
+import { Login } from './pages/login';
+import { Register } from './pages/register';
+import { authProvider } from './providers/auth-provider';
+import { UserCreate, UserEdit, UserList } from './pages/user';
+import { apiInstance } from './api/api';
+import dataProvider from '@refinedev/simple-rest';
+import { accessControlProvider } from './providers/access-control-provider';
+import { Home } from './pages/home';
+import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
+import { config } from './config';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -58,22 +58,22 @@ function App() {
                 authProvider={authProvider}
                 resources={[
                   {
-                    name: "home",
-                    list: "/",
+                    name: 'home',
+                    list: '/',
                     meta: {
                       icon: <HomeOutlined />,
-                      label: t("home.home"),
+                      label: t('home.home'),
                     },
                   },
                   {
-                    name: "user",
-                    list: "/user",
-                    create: "/user/create",
-                    edit: "/user/edit/:id",
+                    name: 'user',
+                    list: '/user',
+                    create: '/user/create',
+                    edit: '/user/edit/:id',
                     meta: {
                       canDelete: true,
                       icon: <UserOutlined />,
-                      label: t("user.users"),
+                      label: t('user.users'),
                     },
                   },
                 ]}
@@ -81,7 +81,7 @@ function App() {
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,
                   useNewQueryKeys: true,
-                  projectId: "LScVZJ-FlAi2M-DQYZaA",
+                  projectId: 'LScVZJ-FlAi2M-DQYZaA',
                 }}
               >
                 <Routes>
@@ -95,7 +95,7 @@ function App() {
                         <ThemedLayoutV2
                           Title={({ collapsed }) => (
                             <ThemedTitleV2
-                              text={t("general.projectName")}
+                              text={t('general.projectName')}
                               collapsed={collapsed}
                             />
                           )}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   RegisterPageProps,
   RegisterFormTypes,
@@ -8,15 +8,15 @@ import {
   useTranslate,
   useRouterContext,
   useRegister,
-} from "@refinedev/core";
-import { ThemedTitleV2 } from "@refinedev/antd";
+} from '@refinedev/core';
+import { ThemedTitleV2 } from '@refinedev/antd';
 import {
   layoutStyles,
   containerStyles,
   titleStyles,
   headStyles,
   bodyStyles,
-} from "./styles";
+} from './styles';
 import {
   Row,
   Col,
@@ -32,8 +32,8 @@ import {
   Divider,
   theme,
   Flex,
-} from "antd";
-import { LanguageSelect } from "src/components/language-select";
+} from 'antd';
+import { LanguageSelect } from 'src/components/language-select';
 
 type RegisterProps = RegisterPageProps<LayoutProps, CardProps, FormProps>;
 /**
@@ -58,7 +58,7 @@ export const RegisterPage: React.FC<RegisterProps> = ({
   const Link = useLink();
   const { Link: LegacyLink } = useRouterContext();
 
-  const ActiveLink = routerType === "legacy" ? LegacyLink : Link;
+  const ActiveLink = routerType === 'legacy' ? LegacyLink : Link;
 
   const authProvider = useActiveAuthProvider();
   const { mutate: register, isLoading } = useRegister<RegisterFormTypes>({
@@ -69,10 +69,10 @@ export const RegisterPage: React.FC<RegisterProps> = ({
     title === false ? null : (
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          marginBottom: "32px",
-          fontSize: "20px",
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '32px',
+          fontSize: '20px',
         }}
       >
         {title ?? <ThemedTitleV2 collapsed={false} />}
@@ -89,7 +89,7 @@ export const RegisterPage: React.FC<RegisterProps> = ({
           ...titleStyles,
         }}
       >
-        {translate("pages.register.title", "Sign up for your account")}
+        {translate('pages.register.title', 'Sign up for your account')}
       </Typography.Title>
     </Flex>
   );
@@ -106,11 +106,11 @@ export const RegisterPage: React.FC<RegisterProps> = ({
                 block
                 icon={provider.icon}
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "100%",
-                  marginBottom: "8px",
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: '100%',
+                  marginBottom: '8px',
                 }}
                 onClick={() =>
                   register({
@@ -129,7 +129,7 @@ export const RegisterPage: React.FC<RegisterProps> = ({
                   color: token.colorTextLabel,
                 }}
               >
-                {translate("pages.login.divider", "or")}
+                {translate('pages.login.divider', 'or')}
               </Typography.Text>
             </Divider>
           )}
@@ -161,36 +161,36 @@ export const RegisterPage: React.FC<RegisterProps> = ({
         >
           <Form.Item
             name="email"
-            label={translate("pages.register.fields.email", "Email")}
+            label={translate('pages.register.fields.email', 'Email')}
             rules={[
               { required: true },
               {
-                type: "email",
+                type: 'email',
                 message: translate(
-                  "pages.register.errors.validEmail",
-                  "Invalid email address"
+                  'pages.register.errors.validEmail',
+                  'Invalid email address',
                 ),
               },
             ]}
           >
             <Input
               size="large"
-              placeholder={translate("pages.register.fields.email", "Email")}
+              placeholder={translate('pages.register.fields.email', 'Email')}
             />
           </Form.Item>
           <Form.Item
             name="name"
-            label={translate("pages.register.fields.name", "Name")}
+            label={translate('pages.register.fields.name', 'Name')}
             rules={[{ required: true }]}
           >
             <Input
               size="large"
-              placeholder={translate("pages.register.fields.name", "Name")}
+              placeholder={translate('pages.register.fields.name', 'Name')}
             />
           </Form.Item>
           <Form.Item
             name="password"
-            label={translate("pages.register.fields.password", "Password")}
+            label={translate('pages.register.fields.password', 'Password')}
             rules={[{ required: true }]}
           >
             <Input type="password" placeholder="●●●●●●●●" size="large" />
@@ -198,27 +198,27 @@ export const RegisterPage: React.FC<RegisterProps> = ({
           <Form.Item
             name="confirmPassword"
             label={translate(
-              "pages.register.fields.confirmPassword",
-              "Confirm Password"
+              'pages.register.fields.confirmPassword',
+              'Confirm Password',
             )}
             hasFeedback
-            dependencies={["password"]}
+            dependencies={['password']}
             rules={[
               {
                 required: true,
               },
               ({ getFieldValue }) => ({
                 validator(_, value) {
-                  if (!value || getFieldValue("password") === value) {
+                  if (!value || getFieldValue('password') === value) {
                     return Promise.resolve();
                   }
                   return Promise.reject(
                     new Error(
                       translate(
-                        "pages.register.errors.confirmPasswordNotMatch",
-                        "Passwords do not match"
-                      )
-                    )
+                        'pages.register.errors.confirmPasswordNotMatch',
+                        'Passwords do not match',
+                      ),
+                    ),
                   );
                 },
               }),
@@ -234,7 +234,7 @@ export const RegisterPage: React.FC<RegisterProps> = ({
               loading={isLoading}
               block
             >
-              {translate("pages.register.buttons.submit", "Sign up")}
+              {translate('pages.register.buttons.submit', 'Sign up')}
             </Button>
           </Form.Item>
         </Form>
@@ -247,17 +247,17 @@ export const RegisterPage: React.FC<RegisterProps> = ({
         >
           <Typography.Text style={{ fontSize: 12 }}>
             {translate(
-              "pages.register.buttons.haveAccount",
-              "Have an account?"
-            )}{" "}
+              'pages.register.buttons.haveAccount',
+              'Have an account?',
+            )}{' '}
             <ActiveLink
               to="/login"
               style={{
-                fontWeight: "bold",
+                fontWeight: 'bold',
                 color: token.colorPrimaryTextHover,
               }}
             >
-              {translate("pages.login.signin", "Sign in")}
+              {translate('pages.login.signin', 'Sign in')}
             </ActiveLink>
           </Typography.Text>
         </div>
@@ -273,15 +273,15 @@ export const RegisterPage: React.FC<RegisterProps> = ({
               fontSize: 12,
             }}
           >
-            {translate("pages.login.buttons.haveAccount", "Have an account?")}{" "}
+            {translate('pages.login.buttons.haveAccount', 'Have an account?')}{' '}
             <ActiveLink
               style={{
-                fontWeight: "bold",
+                fontWeight: 'bold',
                 color: token.colorPrimaryTextHover,
               }}
               to="/login"
             >
-              {translate("pages.login.signin", "Sign in")}
+              {translate('pages.login.signin', 'Sign in')}
             </ActiveLink>
           </Typography.Text>
         </div>
@@ -293,11 +293,11 @@ export const RegisterPage: React.FC<RegisterProps> = ({
     <Layout style={layoutStyles} {...(wrapperProps ?? {})}>
       <Row
         justify="center"
-        align={hideForm ? "top" : "middle"}
+        align={hideForm ? 'top' : 'middle'}
         style={{
-          padding: "16px 0",
-          minHeight: "100dvh",
-          paddingTop: hideForm ? "15dvh" : "16px",
+          padding: '16px 0',
+          minHeight: '100dvh',
+          paddingTop: hideForm ? '15dvh' : '16px',
         }}
       >
         <Col xs={22}>

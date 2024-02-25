@@ -1,7 +1,7 @@
-import { apiInstance } from "./api";
+import { apiInstance } from './api';
 
 export const FileEndpoints = {
-  upload: "/file/upload",
+  upload: '/file/upload',
 };
 
 type UploadFileDto = {
@@ -14,11 +14,11 @@ type UploadFileResponse = {
 
 export const uploadFileRequest = async ({ file }: UploadFileDto) => {
   const formData = new FormData();
-  formData.append("file", file);
+  formData.append('file', file);
 
   return apiInstance.post<UploadFileResponse>(FileEndpoints.upload, formData, {
     headers: {
-      "Content-Type": "multipart/form-data",
+      'Content-Type': 'multipart/form-data',
     },
   });
 };

@@ -1,10 +1,10 @@
-import { Edit, useForm } from "@refinedev/antd";
-import { IResourceComponentsProps, useTranslate } from "@refinedev/core";
-import { Flex, Form, Input, Select } from "antd";
-import React from "react";
-import { ROLES } from "./constants";
-import { User } from "src/types";
-import { FormAvatarUpload } from "src/components/form-avatar-upload";
+import { Edit, useForm } from '@refinedev/antd';
+import { IResourceComponentsProps, useTranslate } from '@refinedev/core';
+import { Flex, Form, Input, Select } from 'antd';
+import React from 'react';
+import { ROLES } from './constants';
+import { User } from 'src/types';
+import { FormAvatarUpload } from 'src/components/form-avatar-upload';
 
 type EditFormSubmitProps = {
   email: string;
@@ -34,16 +34,16 @@ export const UserEdit: React.FC<IResourceComponentsProps> = () => {
         <Flex justify="center">
           <FormAvatarUpload formProps={formProps} />
         </Flex>
-        <Form.Item label={translate("user.fields.email")} name="email">
+        <Form.Item label={translate('user.fields.email')} name="email">
           <Input />
         </Form.Item>
-        <Form.Item label={translate("user.fields.name")} name="name">
+        <Form.Item label={translate('user.fields.name')} name="name">
           <Input />
         </Form.Item>
-        <Form.Item label={translate("user.fields.password")} name="password">
+        <Form.Item label={translate('user.fields.password')} name="password">
           <Input />
         </Form.Item>
-        <Form.Item label={translate("user.fields.roles")} name="roles">
+        <Form.Item label={translate('user.fields.roles')} name="roles">
           <Select mode="multiple">
             {Object.values(ROLES).map((role) => (
               <Select.Option key={role} value={role}>

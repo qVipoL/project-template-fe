@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { Form, Upload } from "antd";
-import type { GetProp, UploadProps } from "antd";
-import { uploadFileRequest } from "src/api/file";
-import { RcFile } from "antd/lib/upload";
-import { useApiUrl, useNotification, useTranslate } from "@refinedev/core";
-import { UseFormReturnType, getValueFromEvent } from "@refinedev/antd";
+import { useState } from 'react';
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { Form, Upload } from 'antd';
+import type { GetProp, UploadProps } from 'antd';
+import { uploadFileRequest } from 'src/api/file';
+import { RcFile } from 'antd/lib/upload';
+import { useApiUrl, useNotification, useTranslate } from '@refinedev/core';
+import { UseFormReturnType, getValueFromEvent } from '@refinedev/antd';
 
-type FileType = Parameters<GetProp<UploadProps, "beforeUpload">>[0];
+type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
 type Props = {
-  formProps: UseFormReturnType<any>["formProps"];
+  formProps: UseFormReturnType<any>['formProps'];
 };
 
 export const FormAvatarUpload = ({ formProps }: Props) => {
@@ -19,19 +19,19 @@ export const FormAvatarUpload = ({ formProps }: Props) => {
   const translate = useTranslate();
   const notification = useNotification();
 
-  const avatars = Form.useWatch("avatar", formProps.form);
+  const avatars = Form.useWatch('avatar', formProps.form);
   const avatar = avatars?.[0] || null;
   const previewImageURL = Array.isArray(avatars)
     ? avatar?.url || avatar?.response?.url
     : avatars;
 
   const beforeUpload = (file: FileType) => {
-    const isJpgOrPng = file.type === "image/png";
+    const isJpgOrPng = file.type === 'image/png';
 
     if (!isJpgOrPng) {
       notification.open?.({
-        type: "error",
-        message: translate("errors.file.onlyPng"),
+        type: 'error',
+        message: translate('errors.file.onlyPng'),
       });
     }
 
@@ -39,8 +39,8 @@ export const FormAvatarUpload = ({ formProps }: Props) => {
 
     if (!isLt1M) {
       notification.open?.({
-        type: "error",
-        message: translate("errors.file.1mbLimit"),
+        type: 'error',
+        message: translate('errors.file.1mbLimit'),
       });
     }
 
@@ -63,7 +63,7 @@ export const FormAvatarUpload = ({ formProps }: Props) => {
       }}
     >
       <Upload
-        style={{ width: "fit-content" }}
+        style={{ width: 'fit-content' }}
         name="file"
         listType="picture-circle"
         accept=".png"
@@ -73,11 +73,11 @@ export const FormAvatarUpload = ({ formProps }: Props) => {
         action={`${apiUrl}/file/upload`}
       >
         {previewImageURL ? (
-          <img src={previewImageURL} alt="avatar" style={{ width: "100%" }} />
+          <img src={previewImageURL} alt="avatar" style={{ width: '100%' }} />
         ) : (
-          <button style={{ border: 0, background: "none" }} type="button">
+          <button style={{ border: 0, background: 'none' }} type="button">
             {loading ? <LoadingOutlined /> : <PlusOutlined />}
-            <div style={{ marginTop: 8 }}>{translate("forms.upload")}</div>
+            <div style={{ marginTop: 8 }}>{translate('forms.upload')}</div>
           </button>
         )}
       </Upload>

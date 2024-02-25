@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   LoginPageProps,
   LoginFormTypes,
@@ -8,15 +8,15 @@ import {
   useLogin,
   useTranslate,
   useRouterContext,
-} from "@refinedev/core";
-import { ThemedTitleV2 } from "@refinedev/antd";
+} from '@refinedev/core';
+import { ThemedTitleV2 } from '@refinedev/antd';
 import {
   bodyStyles,
   containerStyles,
   headStyles,
   layoutStyles,
   titleStyles,
-} from "./styles";
+} from './styles';
 import {
   Row,
   Col,
@@ -33,8 +33,8 @@ import {
   FormProps,
   theme,
   Flex,
-} from "antd";
-import { LanguageSelect } from "src/components/language-select";
+} from 'antd';
+import { LanguageSelect } from 'src/components/language-select';
 
 type LoginProps = LoginPageProps<LayoutProps, CardProps, FormProps>;
 /**
@@ -61,7 +61,7 @@ export const LoginPage: React.FC<LoginProps> = ({
   const Link = useLink();
   const { Link: LegacyLink } = useRouterContext();
 
-  const ActiveLink = routerType === "legacy" ? LegacyLink : Link;
+  const ActiveLink = routerType === 'legacy' ? LegacyLink : Link;
 
   const authProvider = useActiveAuthProvider();
   const { mutate: login, isLoading } = useLogin<LoginFormTypes>({
@@ -72,10 +72,10 @@ export const LoginPage: React.FC<LoginProps> = ({
     title === false ? null : (
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          marginBottom: "32px",
-          fontSize: "20px",
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '32px',
+          fontSize: '20px',
         }}
       >
         {title ?? <ThemedTitleV2 collapsed={false} />}
@@ -92,7 +92,7 @@ export const LoginPage: React.FC<LoginProps> = ({
           ...titleStyles,
         }}
       >
-        {translate("pages.login.title", "Sign in to your account")}
+        {translate('pages.login.title', 'Sign in to your account')}
       </Typography.Title>
     </Flex>
   );
@@ -109,11 +109,11 @@ export const LoginPage: React.FC<LoginProps> = ({
                 block
                 icon={provider.icon}
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "100%",
-                  marginBottom: "8px",
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: '100%',
+                  marginBottom: '8px',
                 }}
                 onClick={() =>
                   login({
@@ -132,7 +132,7 @@ export const LoginPage: React.FC<LoginProps> = ({
                   color: token.colorTextLabel,
                 }}
               >
-                {translate("pages.login.divider", "or")}
+                {translate('pages.login.divider', 'or')}
               </Typography.Text>
             </Divider>
           )}
@@ -167,26 +167,26 @@ export const LoginPage: React.FC<LoginProps> = ({
         >
           <Form.Item
             name="email"
-            label={translate("pages.login.fields.email", "Email")}
+            label={translate('pages.login.fields.email', 'Email')}
             rules={[
               { required: true },
               {
-                type: "email",
+                type: 'email',
                 message: translate(
-                  "pages.login.errors.validEmail",
-                  "Invalid email address"
+                  'pages.login.errors.validEmail',
+                  'Invalid email address',
                 ),
               },
             ]}
           >
             <Input
               size="large"
-              placeholder={translate("pages.login.fields.email", "Email")}
+              placeholder={translate('pages.login.fields.email', 'Email')}
             />
           </Form.Item>
           <Form.Item
             name="password"
-            label={translate("pages.login.fields.password", "Password")}
+            label={translate('pages.login.fields.password', 'Password')}
             rules={[{ required: true }]}
           >
             <Input
@@ -198,19 +198,19 @@ export const LoginPage: React.FC<LoginProps> = ({
           </Form.Item>
           <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "24px",
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginBottom: '24px',
             }}
           >
             {rememberMe ?? (
               <Form.Item name="remember" valuePropName="checked" noStyle>
                 <Checkbox
                   style={{
-                    fontSize: "12px",
+                    fontSize: '12px',
                   }}
                 >
-                  {translate("pages.login.buttons.rememberMe", "Remember me")}
+                  {translate('pages.login.buttons.rememberMe', 'Remember me')}
                 </Checkbox>
               </Form.Item>
             )}
@@ -218,14 +218,14 @@ export const LoginPage: React.FC<LoginProps> = ({
               <ActiveLink
                 style={{
                   color: token.colorPrimaryTextHover,
-                  fontSize: "12px",
-                  marginLeft: "auto",
+                  fontSize: '12px',
+                  marginLeft: 'auto',
                 }}
                 to="/forgot-password"
               >
                 {translate(
-                  "pages.login.buttons.forgotPassword",
-                  "Forgot password?"
+                  'pages.login.buttons.forgotPassword',
+                  'Forgot password?',
                 )}
               </ActiveLink>
             )}
@@ -239,7 +239,7 @@ export const LoginPage: React.FC<LoginProps> = ({
                 loading={isLoading}
                 block
               >
-                {translate("pages.login.signin", "Sign in")}
+                {translate('pages.login.signin', 'Sign in')}
               </Button>
             </Form.Item>
           )}
@@ -254,17 +254,17 @@ export const LoginPage: React.FC<LoginProps> = ({
         >
           <Typography.Text style={{ fontSize: 12 }}>
             {translate(
-              "pages.login.buttons.noAccount",
-              "Don’t have an account?"
-            )}{" "}
+              'pages.login.buttons.noAccount',
+              'Don’t have an account?',
+            )}{' '}
             <ActiveLink
               to="/register"
               style={{
-                fontWeight: "bold",
+                fontWeight: 'bold',
                 color: token.colorPrimaryTextHover,
               }}
             >
-              {translate("pages.login.signup", "Sign up")}
+              {translate('pages.login.signup', 'Sign up')}
             </ActiveLink>
           </Typography.Text>
         </div>
@@ -276,11 +276,11 @@ export const LoginPage: React.FC<LoginProps> = ({
     <Layout style={layoutStyles} {...(wrapperProps ?? {})}>
       <Row
         justify="center"
-        align={hideForm ? "top" : "middle"}
+        align={hideForm ? 'top' : 'middle'}
         style={{
-          padding: "16px 0",
-          minHeight: "100dvh",
-          paddingTop: hideForm ? "15dvh" : "16px",
+          padding: '16px 0',
+          minHeight: '100dvh',
+          paddingTop: hideForm ? '15dvh' : '16px',
         }}
       >
         <Col xs={22}>

@@ -1,15 +1,15 @@
-import { SaveButton, getValueFromEvent, useForm } from "@refinedev/antd";
+import { SaveButton, getValueFromEvent, useForm } from '@refinedev/antd';
 import {
   IResourceComponentsProps,
   useGetToPath,
   useGo,
   useTranslate,
-} from "@refinedev/core";
-import { Button, Flex, Form, Input, Modal, Select, theme } from "antd";
-import React from "react";
-import { ROLES } from "./constants";
-import { useSearchParams } from "react-router-dom";
-import { FormAvatarUpload } from "src/components/form-avatar-upload";
+} from '@refinedev/core';
+import { Button, Flex, Form, Input, Modal, Select, theme } from 'antd';
+import React from 'react';
+import { ROLES } from './constants';
+import { useSearchParams } from 'react-router-dom';
+import { FormAvatarUpload } from 'src/components/form-avatar-upload';
 
 type CreateFormSubmitProps = {
   email: string;
@@ -30,18 +30,18 @@ export const UserCreate: React.FC<IResourceComponentsProps> = () => {
   const handleModalClose = () => {
     go({
       to:
-        searchParams.get("to") ??
+        searchParams.get('to') ??
         getToPath({
-          action: "list",
+          action: 'list',
         }) ??
-        "",
+        '',
       query: {
         to: undefined,
       },
       options: {
         keepQuery: true,
       },
-      type: "replace",
+      type: 'replace',
     });
   };
 
@@ -60,15 +60,15 @@ export const UserCreate: React.FC<IResourceComponentsProps> = () => {
       open
       destroyOnClose
       maskClosable={false}
-      title={translate("user.titles.create")}
+      title={translate('user.titles.create')}
       styles={{
         header: {
-          padding: "20px 24px",
+          padding: '20px 24px',
           margin: 0,
           borderBottom: `1px solid ${token.colorBorderSecondary}`,
         },
         footer: {
-          padding: "20px 24px",
+          padding: '20px 24px',
           margin: 0,
           borderTop: `1px solid ${token.colorBorderSecondary}`,
         },
@@ -80,7 +80,7 @@ export const UserCreate: React.FC<IResourceComponentsProps> = () => {
         return (
           <Flex align="center" justify="space-between">
             <Button onClick={handleModalClose}>
-              {translate("buttons.cancel")}
+              {translate('buttons.cancel')}
             </Button>
             <SaveButton icon={false} {...saveButtonProps} />
           </Flex>
@@ -91,7 +91,7 @@ export const UserCreate: React.FC<IResourceComponentsProps> = () => {
       <Flex
         vertical
         style={{
-          padding: "20px 32px",
+          padding: '20px 32px',
         }}
       >
         <Form {...formProps} onFinish={handleSubmit} layout="vertical">
@@ -99,7 +99,7 @@ export const UserCreate: React.FC<IResourceComponentsProps> = () => {
             <FormAvatarUpload formProps={formProps} />
           </Flex>
           <Form.Item
-            label={translate("user.fields.email")}
+            label={translate('user.fields.email')}
             name="email"
             rules={[
               {
@@ -109,11 +109,11 @@ export const UserCreate: React.FC<IResourceComponentsProps> = () => {
           >
             <Input />
           </Form.Item>
-          <Form.Item label={translate("user.fields.name")} name="name">
+          <Form.Item label={translate('user.fields.name')} name="name">
             <Input />
           </Form.Item>
           <Form.Item
-            label={translate("user.fields.password")}
+            label={translate('user.fields.password')}
             name="password"
             rules={[
               {
@@ -123,7 +123,7 @@ export const UserCreate: React.FC<IResourceComponentsProps> = () => {
           >
             <Input />
           </Form.Item>
-          <Form.Item label={translate("user.fields.roles")} name="roles">
+          <Form.Item label={translate('user.fields.roles')} name="roles">
             <Select mode="multiple">
               {Object.values(ROLES).map((role) => (
                 <Select.Option key={role} value={role}>

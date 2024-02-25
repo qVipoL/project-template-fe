@@ -1,10 +1,10 @@
-import { User } from "src/types";
-import { apiInstance } from "./api";
+import { User } from 'src/types';
+import { apiInstance } from './api';
 
 export const AuthEndpoints = {
-  login: "/auth/login",
-  register: "/auth/register",
-  me: "/auth/me",
+  login: '/auth/login',
+  register: '/auth/register',
+  me: '/auth/me',
 };
 
 type LoginDto = {

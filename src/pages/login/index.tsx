@@ -1,5 +1,5 @@
-import { useTranslate } from "@refinedev/core";
-import { AuthPage } from "../../components/pages/auth";
+import { useTranslate } from '@refinedev/core';
+import { AuthPage } from '../../components/pages/auth';
 
 export const Login = () => {
   return (

@@ -1,6 +1,6 @@
-import { AccessControlProvider } from "@refinedev/core";
-import { ACCESS_TOKEN_KEY } from "./auth-provider";
-import { parseJwt } from "../utils/helpers";
+import { AccessControlProvider } from '@refinedev/core';
+import { ACCESS_TOKEN_KEY } from './auth-provider';
+import { parseJwt } from '../utils/helpers';
 
 const userResources: string[] = [];
 
@@ -16,22 +16,22 @@ export const accessControlProvider: AccessControlProvider = {
 
     const { roles } = parseJwt(token);
 
-    if (roles.includes("ADMIN")) {
+    if (roles.includes('ADMIN')) {
       return { can: true };
     }
 
-    if (roles.includes("USER") && resource) {
+    if (roles.includes('USER') && resource) {
       const can = userResources.includes(resource);
 
       return {
         can,
-        reason: can ? "" : "Unauthorized",
+        reason: can ? '' : 'Unauthorized',
       };
     }
 
     return {
       can: false,
-      reason: "Unauthorized",
+      reason: 'Unauthorized',
     };
   },
 };

@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 import {
   UpdatePasswordPageProps,
   UpdatePasswordFormTypes,
   useActiveAuthProvider,
   useTranslate,
   useUpdatePassword,
-} from "@refinedev/core";
-import { ThemedTitleV2 } from "@refinedev/antd";
+} from '@refinedev/core';
+import { ThemedTitleV2 } from '@refinedev/antd';
 import {
   layoutStyles,
   containerStyles,
   titleStyles,
   headStyles,
   bodyStyles,
-} from "./styles";
+} from './styles';
 import {
   Row,
   Col,
@@ -27,7 +27,7 @@ import {
   CardProps,
   FormProps,
   theme,
-} from "antd";
+} from 'antd';
 
 type UpdatePasswordProps = UpdatePasswordPageProps<
   LayoutProps,
@@ -60,10 +60,10 @@ export const UpdatePasswordPage: React.FC<UpdatePasswordProps> = ({
     title === false ? null : (
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          marginBottom: "32px",
-          fontSize: "20px",
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '32px',
+          fontSize: '20px',
         }}
       >
         {title ?? <ThemedTitleV2 collapsed={false} />}
@@ -78,7 +78,7 @@ export const UpdatePasswordPage: React.FC<UpdatePasswordProps> = ({
         ...titleStyles,
       }}
     >
-      {translate("pages.updatePassword.title", "Set New Password")}
+      {translate('pages.updatePassword.title', 'Set New Password')}
     </Typography.Title>
   );
 
@@ -103,38 +103,38 @@ export const UpdatePasswordPage: React.FC<UpdatePasswordProps> = ({
         <Form.Item
           name="password"
           label={translate(
-            "pages.updatePassword.fields.password",
-            "New Password"
+            'pages.updatePassword.fields.password',
+            'New Password',
           )}
           rules={[{ required: true }]}
-          style={{ marginBottom: "12px" }}
+          style={{ marginBottom: '12px' }}
         >
           <Input type="password" placeholder="●●●●●●●●" size="large" />
         </Form.Item>
         <Form.Item
           name="confirmPassword"
           label={translate(
-            "pages.updatePassword.fields.confirmPassword",
-            "Confirm New Password"
+            'pages.updatePassword.fields.confirmPassword',
+            'Confirm New Password',
           )}
           hasFeedback
-          dependencies={["password"]}
+          dependencies={['password']}
           rules={[
             {
               required: true,
             },
             ({ getFieldValue }) => ({
               validator(_, value) {
-                if (!value || getFieldValue("password") === value) {
+                if (!value || getFieldValue('password') === value) {
                   return Promise.resolve();
                 }
                 return Promise.reject(
                   new Error(
                     translate(
-                      "pages.updatePassword.errors.confirmPasswordNotMatch",
-                      "Passwords do not match"
-                    )
-                  )
+                      'pages.updatePassword.errors.confirmPasswordNotMatch',
+                      'Passwords do not match',
+                    ),
+                  ),
                 );
               },
             }),
@@ -154,7 +154,7 @@ export const UpdatePasswordPage: React.FC<UpdatePasswordProps> = ({
             loading={isLoading}
             block
           >
-            {translate("pages.updatePassword.buttons.submit", "Update")}
+            {translate('pages.updatePassword.buttons.submit', 'Update')}
           </Button>
         </Form.Item>
       </Form>
@@ -167,8 +167,8 @@ export const UpdatePasswordPage: React.FC<UpdatePasswordProps> = ({
         justify="center"
         align="middle"
         style={{
-          padding: "16px 0",
-          minHeight: "100dvh",
+          padding: '16px 0',
+          minHeight: '100dvh',
         }}
       >
         <Col xs={22}>
