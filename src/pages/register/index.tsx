@@ -1,5 +1,5 @@
 import { AuthPage } from "../../components/pages/auth";
 
 export const Register = () => {
-  return <AuthPage type="register" />;
+  return <AuthPage title={false} type="register" />;
 };

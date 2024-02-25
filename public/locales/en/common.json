@@ -110,6 +110,9 @@
   "dashboard": {
     "title": "Dashboard"
   },
+  "home": {
+    "home": "Home"
+  },
   "user": {
     "users": "Users",
     "fields": {
@@ -132,14 +135,14 @@
     "actions": "Actions"
   },
   "documentTitle": {
-    "default": "refine",
-    "suffix": " | Refine",
+    "default": "PROJECT_NAME",
+    "suffix": " | PROJECT_NAME",
     "user": {
-      "list": "Users | Refine",
-      "show": "#{{id}} Show User | Refine",
-      "edit": "#{{id}} Edit User | Refine",
-      "create": "Create new User | Refine",
-      "clone": "#{{id}} Clone User | Refine"
+      "list": "Users | PROJECT_NAME",
+      "show": "#{{id}} Show User | PROJECT_NAME",
+      "edit": "#{{id}} Edit User | PROJECT_NAME",
+      "create": "Create new User | PROJECT_NAME",
+      "clone": "#{{id}} Clone User | PROJECT_NAME"
     }
   },
   "autoSave": {
@@ -156,5 +159,8 @@
   },
   "forms": {
     "upload": "Upload"
+  },
+  "general": {
+    "projectName": "PROJECT_NAME"
   }
 }

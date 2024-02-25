@@ -88,12 +88,13 @@ export const authProvider: AuthBindings = {
 
     if (!user) return null;
 
-    const { id, email, roles } = user;
+    const { id, email, roles, avatar } = user;
 
     return {
       id,
       email,
       roles,
+      avatar,
     };
   },
   // executes on error

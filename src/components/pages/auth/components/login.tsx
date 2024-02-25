@@ -32,7 +32,9 @@ import {
   Divider,
   FormProps,
   theme,
+  Flex,
 } from "antd";
+import { LanguageSelect } from "src/components/language-select";
 
 type LoginProps = LoginPageProps<LayoutProps, CardProps, FormProps>;
 /**
@@ -81,15 +83,18 @@ export const LoginPage: React.FC<LoginProps> = ({
     );
 
   const CardTitle = (
-    <Typography.Title
-      level={3}
-      style={{
-        color: token.colorPrimaryTextHover,
-        ...titleStyles,
-      }}
-    >
-      {translate("pages.login.title", "Sign in to your account")}
-    </Typography.Title>
+    <Flex vertical gap={24}>
+      <LanguageSelect />
+      <Typography.Title
+        level={3}
+        style={{
+          color: token.colorPrimaryTextHover,
+          ...titleStyles,
+        }}
+      >
+        {translate("pages.login.title", "Sign in to your account")}
+      </Typography.Title>
+    </Flex>
   );
 
   const renderProviders = () => {

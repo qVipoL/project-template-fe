@@ -1,3 +1,4 @@
+import { User } from "src/types";
 import { apiInstance } from "./api";
 
 export const AuthEndpoints = {
@@ -42,11 +43,7 @@ export const registerRequest = async ({
   });
 };
 
-type MeResponse = {
-  id: string;
-  email: string;
-  roles: string[];
-};
+type MeResponse = User;
 
 export const meRequest = async () => {
   return apiInstance.get<MeResponse>(AuthEndpoints.me);

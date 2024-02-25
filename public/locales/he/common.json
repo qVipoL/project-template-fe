@@ -110,6 +110,9 @@
   "dashboard": {
     "title": "לוּחַ מַחווָנִים"
   },
+  "home": {
+    "home": "מסך בית"
+  },
   "user": {
     "users": "משתמשים",
     "fields": {
@@ -132,14 +135,14 @@
     "actions": "פעולות"
   },
   "documentTitle": {
-    "default": "לעדן",
-    "suffix": " | ",
+    "default": "PROJECT_NAME",
+    "suffix": " | PROJECT_NAME",
     "user": {
-      "list": "משתמשים | ",
-      "show": "{{id}} הצג משתמש | ",
-      "edit": "{{id}} ערוך משתמש | ",
-      "create": "צור משתמש חדש | ",
-      "clone": "{{id}} שיבוט משתמש | "
+      "list": "משתמשים | PROJECT_NAME",
+      "show": "{{id}} הצג משתמש | PROJECT_NAME",
+      "edit": "{{id}} ערוך משתמש | PROJECT_NAME",
+      "create": "צור משתמש חדש | PROJECT_NAME",
+      "clone": "{{id}} שיבוט משתמש | PROJECT_NAME"
     }
   },
   "autoSave": {
@@ -156,5 +159,8 @@
   },
   "forms": {
     "upload": "העלה"
+  },
+  "general": {
+    "projectName": "PROJECT_NAME"
   }
 }

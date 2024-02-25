@@ -2,6 +2,7 @@ import type { RefineThemedLayoutV2HeaderProps } from "@refinedev/antd";
 import { useGetIdentity } from "@refinedev/core";
 import {
   Layout as AntdLayout,
+  Avatar,
   Flex,
   Space,
   Switch,
@@ -12,6 +13,7 @@ import React, { useContext } from "react";
 import { ColorModeContext } from "../../contexts/color-mode";
 import { LanguageSelect } from "../language-select";
 import { User } from "src/types";
+import { UserOutlined } from "@ant-design/icons";
 
 const { Text } = Typography;
 const { useToken } = theme;
@@ -48,8 +50,9 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
           onChange={() => setMode(mode === "light" ? "dark" : "light")}
           defaultChecked={mode === "dark"}
         />
-        <Space style={{ marginLeft: "8px" }} size="middle">
+        <Space size="middle">
           {user?.email && <Text strong>{user.email}</Text>}
+          <Avatar src={user?.avatar || <UserOutlined />} />
         </Space>
       </Flex>
     </AntdLayout.Header>

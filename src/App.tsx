@@ -6,6 +6,7 @@ import {
   ErrorComponent,
   ThemedLayoutV2,
   ThemedSiderV2,
+  ThemedTitleV2,
   useNotificationProvider,
 } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
@@ -24,12 +25,13 @@ import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { authProvider } from "./providers/auth-provider";
 import { UserCreate, UserEdit, UserList } from "./pages/user";
-import { BASE_URL, apiInstance } from "./api/api";
+import { apiInstance } from "./api/api";
 import dataProvider from "@refinedev/simple-rest";
 import { accessControlProvider } from "./providers/access-control-provider";
-import { Overview } from "./pages/overview";
-import { UserOutlined } from "@ant-design/icons";
+import { Home } from "./pages/home";
+import { HomeOutlined, UserOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
+import { config } from "./config";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -48,13 +50,21 @@ function App() {
           <AntdApp>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider(BASE_URL, apiInstance)}
+                dataProvider={dataProvider(config.BASE_URL, apiInstance)}
                 accessControlProvider={accessControlProvider}
                 i18nProvider={i18nProvider}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerBindings}
                 authProvider={authProvider}
                 resources={[
+                  {
+                    name: "home",
+                    list: "/",
+                    meta: {
+                      icon: <HomeOutlined />,
+                      label: t("home.home"),
+                    },
+                  },
                   {
                     name: "user",
                     list: "/user",
@@ -83,6 +93,12 @@ function App() {
                         fallback={<CatchAllNavigate to="/login" />}
                       >
                         <ThemedLayoutV2
+                          Title={({ collapsed }) => (
+                            <ThemedTitleV2
+                              text={t("general.projectName")}
+                              collapsed={collapsed}
+                            />
+                          )}
                           Header={() => <Header sticky />}
                           Sider={(props) => <ThemedSiderV2 {...props} fixed />}
                         >
@@ -91,7 +107,7 @@ function App() {
                       </Authenticated>
                     }
                   >
-                    <Route index element={<Overview />} />
+                    <Route index element={<Home />} />
                     <Route path="/user">
                       <Route
                         element={
