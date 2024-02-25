@@ -14,7 +14,15 @@ import {
   useExport,
   useTranslate,
 } from '@refinedev/core';
-import { Avatar, Input, InputNumber, Select, Space, Table, theme } from 'antd';
+import {
+  Avatar,
+  Input,
+  InputNumber,
+  Select,
+  Space,
+  Table,
+  Typography,
+} from 'antd';
 import { PropsWithChildren } from 'react';
 import { User } from 'src/types';
 import { ROLES } from './constants';
@@ -27,7 +35,9 @@ export const UserList = ({ children }: PropsWithChildren) => {
     },
   });
   const translate = useTranslate();
-  const { isLoading, triggerExport } = useExport<User>();
+  const { isLoading, triggerExport } = useExport<User>({
+    filters,
+  });
 
   return (
     <>
@@ -52,6 +62,15 @@ export const UserList = ({ children }: PropsWithChildren) => {
             width={100}
             dataIndex="id"
             title={translate('user.fields.id')}
+            render={(value) => (
+              <Typography.Text
+                style={{
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                # {value}
+              </Typography.Text>
+            )}
             defaultFilteredValue={getDefaultFilter('id', filters, 'eq')}
             filterDropdown={(props) => (
               <FilterDropdown {...props}>

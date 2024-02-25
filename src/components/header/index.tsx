@@ -5,15 +5,15 @@ import {
   Avatar,
   Flex,
   Space,
-  Switch,
   Typography,
   theme,
 } from 'antd';
 import React, { useContext } from 'react';
-import { ColorModeContext } from '../../contexts/color-mode';
 import { LanguageSelect } from '../language-select';
 import { User } from 'src/types';
 import { UserOutlined } from '@ant-design/icons';
+import { ThemeSwitchButton } from '../theme-switch-button';
+import { ColorModeContext } from 'src/contexts/color-mode';
 
 const { Text } = Typography;
 const { useToken } = theme;
@@ -23,7 +23,7 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
 }) => {
   const { token } = useToken();
   const { data: user } = useGetIdentity<User>();
-  const { mode, setMode } = useContext(ColorModeContext);
+  const { mode } = useContext(ColorModeContext);
 
   const headerStyles: React.CSSProperties = {
     backgroundColor: token.colorBgElevated,
@@ -44,15 +44,20 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
     <AntdLayout.Header style={headerStyles}>
       <Flex align="center" gap={24}>
         <LanguageSelect />
-        <Switch
-          checkedChildren="🌛"
-          unCheckedChildren="🔆"
-          onChange={() => setMode(mode === 'light' ? 'dark' : 'light')}
-          defaultChecked={mode === 'dark'}
-        />
+        <ThemeSwitchButton />
         <Space size="middle">
           {user?.email && <Text strong>{user.email}</Text>}
-          <Avatar src={user?.avatar || <UserOutlined />} />
+          {user?.avatar ? (
+            <Avatar src={user.avatar} />
+          ) : (
+            <Avatar
+              style={{
+                color: mode === 'light' ? 'black' : 'white',
+                backgroundColor: token.colorBgTextHover,
+              }}
+              icon={<UserOutlined />}
+            />
+          )}
         </Space>
       </Flex>
     </AntdLayout.Header>
