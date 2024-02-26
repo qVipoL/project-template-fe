@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { Form, Upload } from 'antd';
 import type { GetProp, UploadProps } from 'antd';
-import { uploadFileRequest } from 'src/api/file';
-import { RcFile } from 'antd/lib/upload';
 import { useApiUrl, useNotification, useTranslate } from '@refinedev/core';
 import { UseFormReturnType, getValueFromEvent } from '@refinedev/antd';
 
