@@ -25,7 +25,7 @@ import {
 } from 'antd';
 import { PropsWithChildren } from 'react';
 import { User } from 'src/types';
-import { ROLES } from './constants';
+import { ROLES } from 'src/constants/enums';
 
 export const UserList = ({ children }: PropsWithChildren) => {
   const { tableProps, filters } = useTable<User>({

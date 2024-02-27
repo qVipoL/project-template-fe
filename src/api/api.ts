@@ -1,6 +1,6 @@
 import { axiosInstance } from '@refinedev/simple-rest';
 import { ACCESS_TOKEN_KEY } from '../providers/auth-provider';
-import { config } from 'src/config';
+import { config } from 'src/constants/config';
 
 export const apiInstance = axiosInstance;
 

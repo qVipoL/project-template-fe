@@ -2,7 +2,7 @@ import { Edit, useForm } from '@refinedev/antd';
 import { IResourceComponentsProps, useTranslate } from '@refinedev/core';
 import { Flex, Form, Input, Select } from 'antd';
 import React from 'react';
-import { ROLES } from './constants';
+import { ROLES } from 'src/constants/enums';
 import { User } from 'src/types';
 import { FormAvatarUpload } from 'src/components/form-avatar-upload';
 

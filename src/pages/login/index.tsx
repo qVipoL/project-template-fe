@@ -1,4 +1,4 @@
-import { AuthPage } from '../../components/pages/auth';
+import { AuthPage } from '../../components/refine-overwrites/pages/auth';
 
 export const Login = () => {
   return (

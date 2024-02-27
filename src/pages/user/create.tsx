@@ -7,9 +7,9 @@ import {
 } from '@refinedev/core';
 import { Button, Flex, Form, Input, Modal, Select, theme } from 'antd';
 import React from 'react';
-import { ROLES } from './constants';
 import { useSearchParams } from 'react-router-dom';
 import { FormAvatarUpload } from 'src/components/form-avatar-upload';
+import { ROLES } from 'src/constants/enums';
 
 type CreateFormSubmitProps = {
   email: string;

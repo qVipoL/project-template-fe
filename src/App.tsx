@@ -31,7 +31,7 @@ import { accessControlProvider } from './providers/access-control-provider';
 import { Home } from './pages/home';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { config } from './config';
+import { config } from './constants/config';
 
 function App() {
   const { t, i18n } = useTranslation();
